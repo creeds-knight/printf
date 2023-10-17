@@ -15,7 +15,7 @@ int intformat(int n)
 		count += _putchrr('-');
 	}
 
-	while (divider <= n / 10) 
+	while (divider <= n / 10)
 	{
 		divider *= 10;
 	}
