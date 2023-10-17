@@ -13,7 +13,7 @@ int _putts(char *str)
 	if (str)
 	{
 
-		for (str_count = 0; str[str_count]; str_count++)
+		for (str_count = 0; str[str_count] != '\0'; str_count++)
 		{
 			_putchrr(str[str_count]);
 		}
