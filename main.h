@@ -6,5 +6,6 @@
 int _printf(const char *format, ...);
 int _putchrr(char c);
 int _putts(char *str);
+int intformat(int n);
 #endif
 
