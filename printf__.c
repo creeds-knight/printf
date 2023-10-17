@@ -41,7 +41,6 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					char_count += _putchrr('%');
-					/*char_count += _putchrr(*format);*/
 					break;
 			}
 		}
