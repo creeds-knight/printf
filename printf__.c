@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 	int iterator = 0;
 	int character;
 	va_list parameters;
+	int string;
 
 	if (format == NULL)
 		return (-1);
@@ -38,6 +39,12 @@ int _printf(const char *format, ...)
 			_putchrr(character);
 			iterator++;
 			char_count++;
+		}
+		else if (format[iterator] == '%' && (format[iterator + 1] == 's'))
+		{
+			string = _putts(va_arg(parameters, char*));
+			iterator++;
+			char_count += string;
 		}
 		va_end(parameters);
 
