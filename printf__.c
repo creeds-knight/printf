@@ -26,6 +26,11 @@ int _printf(const char *format, ...)
 			_putchrr(format[iterator]);
 			char_count++;
 		}
+		else if (format[iterator] == '%' && format[iterator + 1] =='%')
+		{
+			_putchrr('%');
+			char_count++;
+		}
 
 		else if ((format[iterator] == '%') && (format[iterator + 1] == 'c'))
 		{
@@ -37,5 +42,5 @@ int _printf(const char *format, ...)
 		va_end(parameters);
 
 	}
-	return (char_count + 1);
+	return (char_count);
 }
