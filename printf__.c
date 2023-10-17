@@ -11,13 +11,13 @@ int _printf(const char *format, ...)
 	int char_count = 0;
 	int iterator = 0;
 	int character;
+	va_list parameters;
 
 	if (format == NULL)
 		return (-1);
 
 	for (iterator = 0; format[iterator] != '\0'; iterator++)
 	{
-		va_list parameters;
 
 		va_start(parameters, format);
 
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			_putchrr(format[iterator]);
 			char_count++;
 		}
-		else if (format[iterator] == '%' && format[iterator + 1] =='%')
+		else if (format[iterator] == '%' && format[iterator + 1] == '%')
 		{
 			_putchrr('%');
 			char_count++;
@@ -35,8 +35,8 @@ int _printf(const char *format, ...)
 		else if ((format[iterator] == '%') && (format[iterator + 1] == 'c'))
 		{
 			character = va_arg(parameters, int);
-			iterator++;
 			_putchrr(character);
+			iterator++;
 			char_count++;
 		}
 		va_end(parameters);
