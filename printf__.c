@@ -1,53 +1,45 @@
 #include "main.h"
 
 /**
- * _printf -A function to fomart strings
- * @format: Input string to be formated
- * Return: Number of characters printed
+ * _printf - A function that prints the formated output of a string
+ * @format: string to be formatted
+ * Return: the number of bytes contained in the string
  */
 
 int _printf(const char *format, ...)
 {
-	int char_count = 0;
-	int iterator = 0;
-	int character;
 	va_list parameters;
-	int string;
+	int char_count = 0;
 
-	if (format == NULL)
-		return (-1);
+	va_start(parameters, format);
 
-	for (iterator = 0; format[iterator] != '\0'; iterator++)
+	while (*format)
 	{
-
-		va_start(parameters, format);
-
-		if (format[iterator] != '%')
+		if (format == NULL)
+			return (-1);
+		if (*format != '%')
 		{
-			_putchrr(format[iterator]);
+			_putchrr(*format);
 			char_count++;
 		}
-		else if (format[iterator] == '%' && format[iterator + 1] == '%')
+		else
 		{
-			_putchrr('%');
-			char_count++;
+			format++;
+			switch (*format)
+			{
+				case 'c':
+					char_count += _putchrr(va_arg(parameters, int));
+					break;
+				case 's':
+					char_count += _putts(va_arg(parameters, char *));
+					break;
+				case '%':
+					_putchrr('%');
+					break;
+			}
 		}
-
-		else if ((format[iterator] == '%') && (format[iterator + 1] == 'c'))
-		{
-			character = va_arg(parameters, int);
-			_putchrr(character);
-			iterator++;
-			char_count++;
+		format++;
 		}
-		else if (format[iterator] == '%' && (format[iterator + 1] == 's'))
-		{
-			string = _putts(va_arg(parameters, char*));
-			iterator++;
-			char_count += string;
-		}
-		va_end(parameters);
-
-	}
+	va_end(parameters);
 	return (char_count);
 }

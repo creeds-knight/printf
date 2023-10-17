@@ -9,6 +9,7 @@
 int _putts(char *str)
 {
 	int str_count = 0;
+
 	if (str)
 	{
 
@@ -18,5 +19,4 @@ int _putts(char *str)
 		}
 	}
 	return (str_count);
-	
 }
