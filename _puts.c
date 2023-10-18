@@ -2,8 +2,8 @@
 
 /**
  * _putts - A function that prints a string
- * @str: - String to be printed
- * Return: Length of the string
+ * @str: - This is the String to be printed
+ * Return: Returns the Length of the string
  */
 
 int _putts(char *str)

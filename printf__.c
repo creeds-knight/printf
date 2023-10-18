@@ -2,7 +2,7 @@
 
 /**
  * _printf - A function that prints the formated output of a string
- * @format: string to be formatted
+ * @format: The string to be formatted
  * Return: the number of bytes contained in the string
  */
 
