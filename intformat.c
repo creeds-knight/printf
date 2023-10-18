@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * intformat - A function that prints an integer
- * @n: integer to be printed
+ * @n: This is the integer to be printed
  * Return: count
  */
 int intformat(int n)
