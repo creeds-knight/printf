@@ -2,7 +2,7 @@
 
 /**
  * _putchrr - A function that writes a character to the standard output
- * @c: Character tobe written
+ * @c: This is the Character to be written
  * Return: 1 on success
  */
 int _putchrr(char c)
